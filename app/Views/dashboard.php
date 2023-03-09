@@ -161,6 +161,14 @@
         </div>
     </div>
 
+    <?php
+    $request = \Config\Services::request();
+    $distribusi = $request->getVar('distribusi');
+    $users = $request->getVar('users');
+    $month = $request->getVar('month');
+    $year = $request->getVar('year');
+    ?>
+
     <!-- Filter Dropdown -->
     <div class="col-sm-12 d-flex justify-content-center py-3">
         <form action="" method="post" class="form-inline">
@@ -194,8 +202,12 @@
             </div>
             <div class="input-group mb-3 col-sm-3">
                 <select class="custom-select text-gray-900 font-weight-bold" id="distribusi" name="distribusi">
-                    <option selected disabled hidden>Choose Department</option>
-                    <?php foreach ($distribusi as $d) : ?>
+                    <?php if ($distribusi || $users || $month || $year) : ?>
+                        <option selected disabled hidden><?= $namaDistribusi; ?></option>
+                    <?php else : ?>
+                        <option selected disabled hidden>Choose Department</option>
+                    <?php endif; ?>
+                    <?php foreach ($listDistribusi as $d) : ?>
                         <option value="<?= $d['id'];  ?>" <?= old('distribusi') == $d['id'] ? 'selected' : '' ?>><?= $d['nama_distribusi'];  ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -206,8 +218,8 @@
             <div class="input-group mb-3 col-sm-3">
                 <select class="custom-select text-gray-900 font-weight-bold rounded-right-sm" id="users" name="users">
                     <option selected hidden disabled text>Choose User</option>
-                    <?php foreach ($users as $uPD) : ?>
-                        <option value="<?= $uPD['userid'];  ?>"><?= $uPD['fullname'];  ?></option>
+                    <?php foreach ($listUsers as $ul) : ?>
+                        <option value="<?= $ul['userid'];  ?>"><?= $ul['fullname'];  ?></option>
                     <?php endforeach; ?>
                 </select>
                 <button type="submit" class="btn btn-success ml-3"><i class="fas fa-search-plus"></i></button>
@@ -223,7 +235,11 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header rounded-lg bg-white border-bottom-0 py-4 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-gray-900">Laporan Grafik OPL</h6>
+                    <?php if (in_groups('supervisor') || in_groups('engineer')  || in_groups('admin')) : ?>
+                        <h6 class="m-0 font-weight-bold text-gray-900">Laporan Grafik OPL</h6>
+                    <?php else : ?>
+                        <h6 class="m-0 font-weight-bold text-gray-900">Laporan Grafik OPL <?= date('Y') ?></h6>
+                    <?php endif; ?>
                     <div class="dropdown no-arrow">
                         <?php
                         $request = \Config\Services::request();
@@ -311,22 +327,22 @@
                 <div class="card-header rounded-top-lg border-bottom-0 pt-4 d-flex flex-row align-items-center justify-content-between bg-white">
                     <h6 class="m-0 font-weight-bold text-gray-900">OPL <span class="text-success"><?= user()->username; ?></span> Per Kategori </h6>
                     <div class="dropdown no-arrow">
-                        <!--<button class="download-button dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                        <!--    <div class="docs py-0 px-4"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">-->
-                        <!--            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>-->
-                        <!--            <polyline points="14 2 14 8 20 8"></polyline>-->
-                        <!--            <line y2="13" x2="8" y1="13" x1="16"></line>-->
-                        <!--            <line y2="17" x2="8" y1="17" x1="16"></line>-->
-                        <!--            <polyline points="10 9 9 9 8 9"></polyline>-->
-                        <!--        </svg></div>-->
-                        <!--    <div class="download">-->
-                        <!--        <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">-->
-                        <!--            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>-->
-                        <!--            <polyline points="7 10 12 15 17 10"></polyline>-->
-                        <!--            <line y2="3" x2="12" y1="15" x1="12"></line>-->
-                        <!--        </svg>-->
-                        <!--    </div>-->
-                        <!--</button>-->
+                        <button class="download-button dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="docs py-0 px-4"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line y2="13" x2="8" y1="13" x1="16"></line>
+                                    <line y2="17" x2="8" y1="17" x1="16"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg></div>
+                            <div class="download">
+                                <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line y2="3" x2="12" y1="15" x1="12"></line>
+                                </svg>
+                            </div>
+                        </button>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                             <div class="dropdown-header">Export File To :</div>
                             <a class="dropdown-item font-weight-bold" href="#">.XLSX</a>
