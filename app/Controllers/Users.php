@@ -20,7 +20,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Users extends BaseController
 {
-    protected $db, $builder, $builder1, $builder2, $builder3, $builderD, $usersModel;
+    protected $db, $builder, $builder1, $builder2, $builder3, $usersModel;
     protected $distribusiModel;
     protected $fototsmodel;
     protected $troubleshootingModel;
@@ -49,14 +49,6 @@ class Users extends BaseController
     {
 
         $distribusi = $this->request->getVar('distribusi');
-
-        $this->builderD = $this->db->table('distribusi');
-        $this->builderD->select('distribusi.*');
-        $this->builderD->where('id', $distribusi);
-        $queryD = $this->builderD->get();
-
-        $data['namaDistribusi'] = $queryD->getResultArray();
-
         $users = $this->request->getVar('users');
         $month = $this->request->getVar('month');
         $year = $this->request->getVar('year');
@@ -67,7 +59,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarDistribusi(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->getTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPL(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPL(),
@@ -97,7 +89,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarDistribusi(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->getTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPLSupervisor(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPLSupervisor(),
@@ -127,7 +119,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarDistribusi(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->gettgetTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPLEngineer(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPLEngineer(),
@@ -159,7 +151,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarUser(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->getTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPL(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPL(),
@@ -189,7 +181,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarUser(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->getTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPLSupervisor(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPLSupervisor(),
@@ -219,7 +211,7 @@ class Users extends BaseController
                     'pengetahuandasar' => $this->pengetahuandasarModel->getPengetahuanDasarUser(),
                     'improvement' => $this->improvementModel->getImprovementUser(),
                     'troubleshooting' => $this->troubleshootingModel->getTroubleShootingUser(),
-                    'listDistribusi' => $this->distribusiModel->getDistribusi(),
+                    'distribusi' => $this->distribusiModel->getDistribusi(),
                     'mesin' => $this->mesinModel->getMesin(),
                     'countTS' => $this->troubleshootingModel->getCountOPLEngineer(),
                     'countPD' => $this->pengetahuandasarModel->getCountOPLEngineer(),
@@ -252,7 +244,7 @@ class Users extends BaseController
         $this->builder->orderBy('fullname');
         $query = $this->builder->get();
 
-        $data['listUsers'] = $query->getResultArray();
+        $data['users'] = $query->getResultArray();
 
         return view('dashboard', $data);
     }
