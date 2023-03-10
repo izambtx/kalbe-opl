@@ -498,7 +498,7 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; onepointlesson.site 2023</span>
-                        <span class="d-flex justify-content-end">V0.5</span>
+                        <span class="d-flex justify-content-end">V1.0</span>
                     </div>
                 </div>
             </footer>
