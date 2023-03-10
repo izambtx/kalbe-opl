@@ -439,7 +439,7 @@
                                             </div>
                                             <div>
                                                 <div class="small text-gray-500"><?= date('l, d F Y'); ?></div>
-                                                <span class="font-weight-bold"><?= $jumlahCTSPD; ?> new socialized OPL <span class="font-weight-bold text-success">Pengetahuan Dasar</span> is ready to trained!</span>
+                                                <span class="font-weight-bold"><?= $jumlahCTSPD; ?> UNREAD socialized OPL <span class="font-weight-bold text-success">Pengetahuan Dasar</span> is ready to trained!</span>
                                             </div>
                                         </a>
                                     <?php endif; ?>
@@ -452,7 +452,7 @@
                                             </div>
                                             <div>
                                                 <div class="small text-gray-500"><?= date('l, d F Y'); ?></div>
-                                                <span class="font-weight-bold"><?= $jumlahCTSIM; ?> new socialized OPL <span class="font-weight-bold text-success">Improvement</span> is ready to trained!</span>
+                                                <span class="font-weight-bold"><?= $jumlahCTSIM; ?> UNREAD socialized OPL <span class="font-weight-bold text-success">Improvement</span> is ready to trained!</span>
                                             </div>
                                         </a>
                                     <?php endif; ?>
@@ -465,7 +465,7 @@
                                             </div>
                                             <div>
                                                 <div class="small text-gray-500"><?= date('l, d F Y'); ?></div>
-                                                <span class="font-weight-bold"><?= $jumlahCTSTS; ?> new socialized OPL <span class="font-weight-bold text-success">Trouble Shooting</span> is ready to trained!</span>
+                                                <span class="font-weight-bold"><?= $jumlahCTSTS; ?> UNREAD socialized OPL <span class="font-weight-bold text-success">Trouble Shooting</span> is ready to trained!</span>
                                             </div>
                                         </a>
                                     <?php endif; ?>
