@@ -20,4 +20,13 @@ class UsersModel extends Model
     {
         return $this->join('distribusi', 'distribusi.id = users.distribusi')->where('users.distribusi', $distribusi)->findAll();
     }
+
+    public function getUsers($id = false)
+    {
+        if ($id == false) {
+            return $this->orderBy('fullname')->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    }
 }
