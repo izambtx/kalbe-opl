@@ -169,7 +169,12 @@
                 $selected_month = date('m'); //current month
 
                 echo '<select class="custom-select text-gray-900 font-weight-bold" id="month" name="month">' . "\n";
-                echo '<option selected disabled hidden text>Choose Month</option>' . "\n";
+                if ($month) {
+                    echo '<option selected disabled hidden>' . date("F", mktime(0, 0, 0, $month));
+                    '</option>' . "\n";
+                } else {
+                    echo '<option selected disabled hidden>Choose Month</option>' . "\n";
+                }
                 for ($i_month = 1; $i_month <= 12; $i_month++) {
                     $selected = ($selected_month == $i_month ? ' selected' : '');
                     echo '<option value="' . $i_month . '"' . '>' . date('F', mktime(0, 0, 0, $i_month)) . '</option>' . "\n";
@@ -184,7 +189,11 @@
                 $user_selected_year = 1992; // user date of birth year
 
                 echo '<select class="custom-select text-gray-900 font-weight-bold" id="year" name="year">' . "\n";
-                echo '<option selected disabled hidden value="$year_end">Choose Year</option>' . "\n";
+                if ($year) {
+                    echo '<option selected disabled hidden value="$year_end">' . $year . '</option>' . "\n";
+                } else {
+                    echo '<option selected disabled hidden value="$year_end">Choose Year</option>' . "\n";
+                }
                 for ($i_year = $year_start; $i_year <= $year_end; $i_year++) {
                     $selected = ($user_selected_year == $i_year ? ' selected' : '');
                     echo '<option value="' . $i_year . '"' . '>' . $i_year . '</option>' . "\n";
@@ -194,8 +203,12 @@
             </div>
             <div class="input-group mb-3 col-sm-3">
                 <select class="custom-select text-gray-900 font-weight-bold" id="distribusi" name="distribusi">
-                    <option selected disabled hidden>Choose Department</option>
-                    <?php foreach ($distribusi as $d) : ?>
+                    <?php if ($distribusi) : ?>
+                        <option selected disabled hidden><?= $distribusiNama['nama_distribusi']; ?></option>
+                    <?php else : ?>
+                        <option selected disabled hidden>Choose Department</option>
+                    <?php endif; ?>
+                    <?php foreach ($distribusiList as $d) : ?>
                         <option value="<?= $d['id'];  ?>" <?= old('distribusi') == $d['id'] ? 'selected' : '' ?>><?= $d['nama_distribusi'];  ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -205,9 +218,13 @@
             </div> -->
             <div class="input-group mb-3 col-sm-3">
                 <select class="custom-select text-gray-900 font-weight-bold rounded-right-sm" id="users" name="users">
-                    <option selected hidden disabled text>Choose User</option>
-                    <?php foreach ($users as $uPD) : ?>
-                        <option value="<?= $uPD['userid'];  ?>"><?= $uPD['fullname'];  ?></option>
+                    <?php if ($month && $year && $distribusi && $users) : ?>
+                        <option selected disabled hidden><?= $usersNama['fullname']; ?></option>
+                    <?php else : ?>
+                        <option selected hidden disabled>Choose User</option>
+                    <?php endif; ?>
+                    <?php foreach ($usersList as $uL) : ?>
+                        <option value="<?= $uL['id'];  ?>"><?= $uL['fullname'];  ?></option>
                     <?php endforeach; ?>
                 </select>
                 <button type="submit" class="btn btn-success ml-3"><i class="fas fa-search-plus"></i></button>
