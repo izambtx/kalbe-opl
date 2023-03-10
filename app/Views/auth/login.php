@@ -85,12 +85,12 @@
                                         LOGIN
                                     </button>
                                 </form>
-                                <div class="text-center mt-3">
+<!--                                 <div class="text-center mt-3">
                                     <?php if ($config->allowRegistration) : ?>
                                         <a class="small font-weight-bold text-gray-900" href="<?= url_to('register') ?>"><?= lang('Auth.needAnAccount') ?>, Sign Up</a>
 
                                     <?php endif; ?>
-                                </div>
+                                </div> -->
                                 <!-- <?php if ($config->activeResetter) : ?>
                                     <p><a href="<?= url_to('forgot') ?>"><?= lang('Auth.forgotYourPassword') ?></a></p>
                                 <?php endif; ?> -->
