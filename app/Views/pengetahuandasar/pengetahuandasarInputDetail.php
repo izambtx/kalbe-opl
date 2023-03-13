@@ -235,7 +235,7 @@
                                         <line y2="13" x2="8" y1="13" x1="16"></line>
                                         <line y2="17" x2="8" y1="17" x1="16"></line>
                                         <polyline points="10 9 9 9 8 9"></polyline>
-                                    </svg> Download .JPG</div>
+                                    </svg> Download .PNG</div>
                                 <div class="download">
                                     <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24">
                                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
