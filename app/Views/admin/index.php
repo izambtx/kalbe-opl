@@ -5,6 +5,8 @@
 
     <div class="container-fluid">
 
+        <div class="flash-data" data-flashdata="<?= session()->getFlashdata('pesan'); ?>"></div>
+
         <!-- Page Heading -->
         <div class="row">
             <div class="col-auto mr-auto">
