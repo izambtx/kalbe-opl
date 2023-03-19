@@ -43,13 +43,16 @@ $routes->get('/view_profile', 'Users::view_profile');
 $routes->get('/opl/export', 'Users::export');
 
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
+$routes->post('/admin', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
 $routes->get('/admin/create', 'Admin::create', ['filter' => 'role:admin']);
 $routes->get('/admin/(:num)', 'Admin::detail/$1', ['filter' => 'role:admin']);
+$routes->post('/admin/(:num)', 'Admin::update/$1', ['filter' => 'role:admin']);
 $routes->get('/admin/edit/(:any)', 'Admin::edit/$1', ['filter' => 'role:admin']);
-$routes->put('/admin/(:num)', 'Admin::update/$1', ['filter' => 'role:admin']);
 $routes->get('/admin/delete/(:num)', 'Admin::delete/$1', ['filter' => 'role:admin']);
 $routes->get('/edit_my_admin', 'Admin::edit_my_admin', ['filter' => 'role:admin']);
+$routes->get('/admin/change-password/(:num)', 'Admin::changePassword/$1', ['filter' => 'role:admin']);
+$routes->post('/admin/update-password/(:num)', 'Admin::updatePassword/$1', ['filter' => 'role:admin']);
 
 $routes->get('/user', 'Users::index', ['filter' => 'role:user']);
 $routes->get('/edit_my_user', 'Users::edit_my_user', ['filter' => 'role:user']);
@@ -61,8 +64,8 @@ $routes->post('/update-password', 'Users::updatePassword');
 
 // SETELAH LOGIN
 
-$routes->get('/PengetahuanDasar/(:num)', 'PengetahuanDasar::index/$1');
-$routes->post('/PengetahuanDasar/(:num)', 'PengetahuanDasar::index/$1');
+$routes->get('/PengetahuanDasar', 'PengetahuanDasar::index/$1');
+$routes->post('/PengetahuanDasar', 'PengetahuanDasar::index/$1');
 $routes->get('/PengetahuanDasar/DetailsPengetahuanDasar/(:segment)', 'PengetahuanDasar::detail/$1');
 $routes->post('/PengetahuanDasar/approve/(:segment)', 'PengetahuanDasar::approve/$1');
 $routes->post('/PengetahuanDasar/check/(:segment)', 'PengetahuanDasar::engineer/$1');
@@ -70,8 +73,8 @@ $routes->post('/PengetahuanDasar/rejectSupervisor/(:segment)', 'PengetahuanDasar
 $routes->post('/PengetahuanDasar/rejectEngineer/(:segment)', 'PengetahuanDasar::rejectedEngineer/$1');
 $routes->post('/PengetahuanDasar/returnSupervisor/(:segment)', 'PengetahuanDasar::returnedSupervisor/$1');
 $routes->post('/PengetahuanDasar/returnEngineer/(:segment)', 'PengetahuanDasar::returnedEngineer/$1');
-$routes->get('/PengetahuanDasar/History/(:num)', 'PengetahuanDasar::history/$1');
-$routes->post('/PengetahuanDasar/History/(:num)', 'PengetahuanDasar::history/$1');
+$routes->get('/PengetahuanDasar/History', 'PengetahuanDasar::history/$1');
+$routes->post('/PengetahuanDasar/History', 'PengetahuanDasar::history/$1');
 
 $routes->get('/ListPengetahuanDasar/(:num)', 'PengetahuanDasar::inputList/$1');
 $routes->post('/ListPengetahuanDasar/(:num)', 'PengetahuanDasar::inputList/$1');
@@ -85,12 +88,14 @@ $routes->get('/ListPengetahuanDasar/Edit/DetailsUserPengetahuanDasar/(:num)', 'P
 $routes->post('/ListPengetahuanDasar/UpdatePengetahuanDasar/(:num)', 'PengetahuanDasar::updateReturned/$1');
 $routes->get('/List-Sosialisasi-PengetahuanDasar', 'PengetahuanDasar::realisasiList');
 $routes->post('/List-Sosialisasi-PengetahuanDasar', 'PengetahuanDasar::realisasiList');
+$routes->get('/List-Sosialisasi-PengetahuanDasar/History/(:segment)', 'PengetahuanDasar::realisasiListHistory');
+$routes->post('/List-Sosialisasi-PengetahuanDasar/History/(:segment)', 'PengetahuanDasar::realisasiListHistory');
 $routes->get('/List-Sosialisasi-PengetahuanDasar/Detail-Sosialisasi-PengetahuanDasar/(:segment)', 'PengetahuanDasar::detailRealisasi/$1');
 $routes->post('/List-Sosialisasi-PengetahuanDasar/Detail-Sosialisasi-PengetahuanDasar/ParafTrainee/(:segment)', 'RealisasiPD::submitRealisasi/$1');
 $routes->post('/ListPengetahuanDasar/DetailsUserPengetahuanDasar/ParafTrainer/(:segment)', 'RealisasiPD::parafTrainer/$1');
 
-$routes->get('/Improvement/(:num)', 'improvement::index/$1');
-$routes->post('/Improvement/(:num)', 'improvement::index/$1');
+$routes->get('/Improvement', 'improvement::index/$1');
+$routes->post('/Improvement', 'improvement::index/$1');
 $routes->get('/Improvement/DetailsImprovement/(:segment)', 'improvement::detail/$1');
 $routes->post('/Improvement/approve/(:segment)', 'improvement::approve/$1');
 $routes->post('/Improvement/check/(:segment)', 'improvement::engineer/$1');
@@ -98,8 +103,8 @@ $routes->post('/Improvement/rejectSupervisor/(:segment)', 'improvement::rejected
 $routes->post('/Improvement/rejectEngineer/(:segment)', 'improvement::rejectedEngineer/$1');
 $routes->post('/Improvement/returnSupervisor/(:segment)', 'improvement::returnedSupervisor/$1');
 $routes->post('/Improvement/returnEngineer/(:segment)', 'improvement::returnedEngineer/$1');
-$routes->get('/Improvement/History/(:num)', 'improvement::history/$1');
-$routes->post('/Improvement/History/(:num)', 'improvement::history/$1');
+$routes->get('/Improvement/History', 'improvement::history/$1');
+$routes->post('/Improvement/History', 'improvement::history/$1');
 
 $routes->get('/ListImprovement/(:num)', 'improvement::inputList/$1');
 $routes->post('/ListImprovement/(:num)', 'improvement::inputList/$1');
@@ -117,8 +122,8 @@ $routes->get('/List-Sosialisasi-Improvement/Detail-Sosialisasi-Improvement/(:seg
 $routes->post('/List-Sosialisasi-Improvement/Detail-Sosialisasi-Improvement/ParafTrainee/(:segment)', 'RealisasiIM::submitRealisasi/$1');
 $routes->post('/ListImprovement/DetailsUserImprovement/ParafTrainer/(:segment)', 'RealisasiIM::parafTrainer/$1');
 
-$routes->get('/TroubleShooting/(:num)', 'troubleshooting::index/$1');
-$routes->post('/TroubleShooting/(:num)', 'troubleshooting::index/$1');
+$routes->get('/TroubleShooting', 'troubleshooting::index/$1');
+$routes->post('/TroubleShooting', 'troubleshooting::index/$1');
 $routes->get('/TroubleShooting/DetailsTroubleShooting/(:segment)', 'troubleshooting::detail/$1');
 $routes->post('/TroubleShooting/approve/(:segment)', 'troubleshooting::approve/$1');
 $routes->post('/TroubleShooting/check/(:segment)', 'troubleshooting::engineer/$1');
@@ -126,8 +131,8 @@ $routes->post('/TroubleShooting/rejectSupervisor/(:segment)', 'troubleshooting::
 $routes->post('/TroubleShooting/rejectEngineer/(:segment)', 'troubleshooting::rejectedEngineer/$1');
 $routes->post('/TroubleShooting/returnSupervisor/(:segment)', 'troubleshooting::returnedSupervisor/$1');
 $routes->post('/TroubleShooting/returnEngineer/(:segment)', 'troubleshooting::returnedEngineer/$1');
-$routes->get('/TroubleShooting/History/(:num)', 'troubleshooting::history/$1');
-$routes->post('/TroubleShooting/History/(:num)', 'troubleshooting::history/$1');
+$routes->get('/TroubleShooting/History', 'troubleshooting::history/$1');
+$routes->post('/TroubleShooting/History', 'troubleshooting::history/$1');
 
 $routes->get('/ListTroubleShooting/(:num)', 'troubleshooting::inputList/$1');
 $routes->post('/ListTroubleShooting/(:num)', 'troubleshooting::inputList/$1');
