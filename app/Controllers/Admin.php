@@ -141,6 +141,7 @@ class Admin extends BaseController
     {
         $data = [
             'title' => 'Add New User',
+            'distribusi' => $this->distribusiModel->getDistribusi(),
             'countTS' => 0,
             'countPD' => 0,
             'countIM' => 0,
