@@ -191,11 +191,13 @@ class AuthController extends Controller
             }
 
             // Success!
-            return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
+            // return redirect()->route('login')->with('message', lang('Auth.activationSuccess'));
+            return redirect()->route('admin')->with('pesan', lang('Auth.activationSuccess'));
         }
 
         // Success!
-        return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+        // return redirect()->route('login')->with('message', lang('Auth.registerSuccess'));
+        return redirect()->route('admin')->with('pesan', 'Berhasil Menambahkan Anggota Baru!');
     }
 
     //--------------------------------------------------------------------
