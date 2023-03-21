@@ -82,6 +82,8 @@ $routes->get('/ListPengetahuanDasar/CreatePengetahuanDasar', 'PengetahuanDasar::
 $routes->post('/ListPengetahuanDasar/SavePengetahuanDasar', 'PengetahuanDasar::save');
 $routes->delete('/ListPengetahuanDasar/DetailsUserPengetahuanDasar/(:num)', 'RealisasiPD::deleteTrainee/$1');
 $routes->get('/ListPengetahuanDasar/DetailsUserPengetahuanDasar/(:any)', 'PengetahuanDasar::detailInput/$1');
+$routes->post('/ListPengetahuanDasar/DetailsUserPengetahuanDasar/OpenSosialisasi/(:any)', 'PengetahuanDasar::OpenRealisasi/$1');
+$routes->post('/ListPengetahuanDasar/DetailsUserPengetahuanDasar/CloseSosialisasi/(:any)', 'PengetahuanDasar::CloseRealisasi/$1');
 $routes->get('/ListPengetahuanDasar/Status/(:num)', 'PengetahuanDasar::returned/$1');
 $routes->post('/ListPengetahuanDasar/Status/(:num)', 'PengetahuanDasar::returned/$1');
 $routes->get('/ListPengetahuanDasar/Edit/DetailsUserPengetahuanDasar/(:num)', 'PengetahuanDasar::editReturned/$1');
@@ -112,6 +114,8 @@ $routes->get('/ListImprovement/CreateImprovement', 'improvement::create');
 $routes->post('/ListImprovement/SaveImprovement', 'improvement::save');
 $routes->delete('/ListImprovement/DetailsUserImprovement/(:num)', 'RealisasiIM::deleteTrainee/$1');
 $routes->get('/ListImprovement/DetailsUserImprovement/(:any)', 'improvement::detailInput/$1');
+$routes->post('/ListImprovement/DetailsUserImprovement/OpenSosialisasi/(:any)', 'Improvement::OpenRealisasi/$1');
+$routes->post('/ListImprovement/DetailsUserImprovement/CloseSosialisasi/(:any)', 'Improvement::CloseRealisasi/$1');
 $routes->get('/ListImprovement/Status/(:num)', 'improvement::returned/$1');
 $routes->post('/ListImprovement/Status/(:num)', 'improvement::returned/$1');
 $routes->get('/ListImprovement/Edit/DetailsUserImprovement/(:num)', 'improvement::editReturned/$1');
@@ -140,6 +144,8 @@ $routes->get('/ListTroubleShooting/CreateTroubleShooting', 'troubleshooting::cre
 $routes->post('/ListTroubleShooting/SaveTroubleShooting', 'troubleshooting::save');
 $routes->delete('/ListTroubleShooting/DetailsUserTroubleShooting/(:num)', 'RealisasiTS::deleteTrainee/$1');
 $routes->get('/ListTroubleShooting/DetailsUserTroubleShooting/(:any)', 'troubleshooting::detailInput/$1');
+$routes->post('/ListTroubleShooting/DetailsUserTroubleShooting/OpenSosialisasi/(:any)', 'TroubleShooting::OpenRealisasi/$1');
+$routes->post('/ListTroubleShooting/DetailsUserTroubleShooting/CloseSosialisasi/(:any)', 'TroubleShooting::CloseRealisasi/$1');
 $routes->get('/ListTroubleShooting/Status/(:num)', 'troubleshooting::returned/$1');
 $routes->post('/ListTroubleShooting/Status/(:num)', 'troubleshooting::returned/$1');
 $routes->get('/ListTroubleShooting/Edit/DetailsUserTroubleShooting/(:num)', 'troubleshooting::editReturned/$1');
