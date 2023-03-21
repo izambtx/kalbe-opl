@@ -298,6 +298,8 @@
                                 <?php endif; ?>
                                 <?php if ($tsU['status'] == 'Created') : ?>
                                     <td class="align-middle"><span class="badge badge-primary"><?= $tsU['status'];  ?></span></td>
+                                <?php elseif ($tsU['status'] == 'Updated') : ?>
+                                    <td class="align-middle"><span class="badge badge-warning"><?= $tsU['status'];  ?></span></td>
                                 <?php elseif ($tsU['status'] == 'Approved Supervisor') : ?>
                                     <td class="align-middle"><span class="badge badge-info"><?= $tsU['status'];  ?></span></td>
                                 <?php elseif ($tsU['status'] == 'Approved Engineer') : ?>
