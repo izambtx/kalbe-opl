@@ -291,6 +291,8 @@
                             <?php endif; ?>
                             <?php if ($pdU['status'] == 'Created') : ?>
                                 <td class="align-middle"><span class="badge badge-primary"><?= $pdU['status'];  ?></span></td>
+                            <?php elseif ($pdU['status'] == 'Updated') : ?>
+                                <td class="align-middle"><span class="badge badge-warning"><?= $pdU['status'];  ?></span></td>
                             <?php elseif ($pdU['status'] == 'Approved Supervisor') : ?>
                                 <td class="align-middle"><span class="badge badge-info"><?= $pdU['status'];  ?></span></td>
                             <?php elseif ($pdU['status'] == 'Approved Engineer') : ?>
