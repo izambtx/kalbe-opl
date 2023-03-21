@@ -304,6 +304,8 @@
                                 <?php endif; ?>
                                 <?php if ($imU['status'] == 'Created') : ?>
                                     <td class="align-middle"><span class="badge badge-primary"><?= $imU['status'];  ?></span></td>
+                                <?php elseif ($imU['status'] == 'Updated') : ?>
+                                    <td class="align-middle"><span class="badge badge-warning"><?= $imU['status'];  ?></span></td>
                                 <?php elseif ($imU['status'] == 'Approved Supervisor') : ?>
                                     <td class="align-middle"><span class="badge badge-info"><?= $imU['status'];  ?></span></td>
                                 <?php elseif ($imU['status'] == 'Approved Engineer') : ?>
