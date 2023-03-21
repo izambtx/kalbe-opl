@@ -269,7 +269,8 @@
 }
 
 .cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
+  width: calc(100% - 2em);
+  margin-right: 12px;
 }
 
 .cssbuttons-io-button .icon svg {
@@ -7726,6 +7727,12 @@ button.bg-dark:focus {
 .rounded-bottom {
   border-bottom-right-radius: 1rem !important;
   border-bottom-left-radius: 1rem !important;
+}
+
+.rounded-bottom-end {
+  border-bottom-right-radius: 1rem !important;
+  border-bottom-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
 }
 
 .rounded-left {
