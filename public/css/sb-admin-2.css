@@ -10,6 +10,90 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .card-form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form-kritik {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  position: relative;
+}
+
+.form-kritik .group label {
+  font-size: 14px;
+  color: rgb(99, 102, 102);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  transition: all .3s ease;
+}
+
+.form-kritik .group input,
+.form-kritik .group textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  outline: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.form-kritik .group input:placeholder-shown+ label, .form-kritik .group textarea:placeholder-shown +label {
+  top: 10px;
+  background-color: transparent;
+}
+
+.form-kritik .group input:focus,
+.form-kritik .group textarea:focus {
+  border-color: #3366cc;
+}
+
+.form-kritik .group input:focus+ label, .form-kritik .group textarea:focus +label {
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  color: #3366cc;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-kritik .group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.form-kritik button {
+  background-color: #3366cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-kritik button:hover {
+  background-color: #27408b;
+}
 
  .select {
   width: 150px;
@@ -3520,7 +3604,100 @@ textarea.form-control {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0.35rem;
+  position: relative;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-cari::after {
+ content: 'tema';
+ position: absolute;
+ top: -50%;
+ left: 50%;
+ transform: translateX(-50%);
+ width: fit-content;
+ height: fit-content;
+ background-color: #4ec433;
+ padding: 4px 8px;
+ border-radius: 5px;
+ transition: .2s linear;
+ transition-delay: .2s;
+ color: white;
+ text-transform: uppercase;
+ font-size: 12px;
+ opacity: 0;
+ visibility: hidden;
+}
+
+.btn-cari:hover::after {
+ visibility: visible;
+ opacity: 1;
+ top: 120%;
+}
+
+.btn-cari-date {
+  display: inline-block;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #4ec433;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-cari-date span {
+  opacity: 0;
+  margin-right: -8em;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cari-date:hover span {
+  display: inline;
+  margin-left: 0.3em;
+  margin-right: 0;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cari-date i {
+  display: inline;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-cari-date:hover i {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.btn-cari-date:hover i {
+  transform: translateX(5em) scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cari-date:hover span {
+  transform: translateX(4em);
+}
+
+.btn-cari-date:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
 }
 
 .btn-custom {
