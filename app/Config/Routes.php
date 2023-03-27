@@ -40,6 +40,9 @@ $routes->post('/', 'Users::index');
 $routes->get('/', 'Users::index');
 $routes->get('/view_profile', 'Users::view_profile');
 
+$routes->get('/KritikSaran', 'Users::KritikSaran');
+$routes->post('/KritikSaran', 'Users::KritikSaran');
+
 $routes->get('/opl/export', 'Users::export');
 
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
