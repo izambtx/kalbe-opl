@@ -396,12 +396,6 @@ class Users extends BaseController
             $data['countRIM'] = $this->improvementModel->getCountApproved();
             $data['countRTS'] = $this->troubleshootingModel->getCountApproved();
             $data['countRPD'] = $this->pengetahuandasarModel->getCountApproved();
-            $data['maxCIM1'] = $this->improvementModel->getCountMax();
-            $data['maxCIM'] = max($data['maxCIM1']);
-            $data['maxCPD1'] = $this->pengetahuandasarModel->getCountMax();
-            $data['maxCPD'] = max($data['maxCPD1']);
-            $data['maxCTS1'] = $this->troubleshootingModel->getCountMax();
-            $data['maxCTS'] = max($data['maxCTS1']);
         } elseif (in_groups('admin')) {
             $data['countTS'] = $this->troubleshootingModel->countAllResults();
             $data['countPD'] = $this->pengetahuandasarModel->countAllResults();
