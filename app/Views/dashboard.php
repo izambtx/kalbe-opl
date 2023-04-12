@@ -154,46 +154,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <!-- <div class="col-xl-12 col-md-12 mb-4">
-            <div class="container text-gray-500">
-                <div class="row mt-3 pt-1">
-                    <div class="col-sm-8">
-                        <span class="">OPL Terbanyak Pada <?= date('F Y'); ?></span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span class="">Department</span>
-                    </div>
-                    <div class="col-sm">
-                        <span class="">Total</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card shadow">
-                <div class="media">
-                    <img src="/img/1103-confetti-lineal_2.gif" class="col-sm-1 align-self-center mr-3" alt="...">
-                    <div class="container font-weight-bold text-gray-900">
-                        <div class="row mt-3 pt-1">
-                            <div class="col-sm-7">
-                                <span class=""><?= user()->fullname; ?> </span>
-                            </div>
-                            <div class="col-sm-4">
-                                <span class="">GUDANG BAHAN&WADAH </span>
-                            </div>
-                            <div class="col-sm">
-                                <span class="">
-                                    <?= $maxCTS['pembuat'] + $maxCIM['pembuat'] + $maxCPD['pembuat']; ?>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-
-    <!-- <marquee class="text-gray-900">OPL Terbanyak : <b><?= user()->fullname; ?></b>, dari department <b>MSTD</b>, Dengan Total : <b>60</b> OPL Pada <?= date('F Y'); ?></marquee> -->
 
     <form action="" method="post" class="col-sm-12 bg-white pt-3 rounded-top ">
         <div class="row">
